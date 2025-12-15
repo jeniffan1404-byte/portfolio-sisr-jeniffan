@@ -1,136 +1,378 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-FR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio BTS SIO SISR - Jeniffan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght=300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio BTS SIO SISR - Jeniffan JOHN ARULTHASAN</title>
+    <meta name="description" content="Bienvenue sur mon Portfolio. Retrouvez mes réalisations et compétences acquises durant mon BTS SIO option SISR.">
+    
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700|Montserrat:500,700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        /* --- RESET & GLOBAL STYLES --- */
+        :root {
+            --primary-color: #0bb4aa; /* Couleur turquoise extraite de ton code */
+            --dark-bg: #101010;
+            --light-text: #ffffff;
+            --gray-text: #cccccc;
+            --card-bg: #1e1e1e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul { list-style: none; }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(16, 16, 16, 0.95);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: var(--primary-color); }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        nav a:hover { color: var(--primary-color); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(16,16,16,0.9)), 
+                        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); /* Image générique tech */
+            background-size: cover;
+            background-position: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray-text);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        /* --- SECTIONS GÉNÉRALES --- */
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* --- À PROPOS --- */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text { flex: 1; }
+        .about-img { 
+            flex: 1; 
+            text-align: center;
+        }
+        
+        .about-img img {
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* --- COMPÉTENCES (SISR) --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+            border-top: 3px solid var(--primary-color);
+        }
+
+        .skill-card:hover { transform: translateY(-5px); }
+
+        .skill-card h3 { margin: 15px 0; }
+
+        /* --- PORTFOLIO / PROJETS --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .project-img {
+            height: 200px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+        }
+
+        .project-content { padding: 25px; }
+        .project-content h3 { margin-bottom: 10px; }
+        .project-content p { font-size: 0.9rem; color: var(--gray-text); margin-bottom: 20px; }
+        
+        .project-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #050505;
+            padding: 50px 10%;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header { padding: 20px; flex-direction: column; }
+            nav ul { margin-top: 20px; gap: 15px; }
+            .hero h1 { font-size: 2.5rem; }
+            .about-content { flex-direction: column; }
+        }
+    </style>
 </head>
 <body>
 
-    <header id="navbar">
-        <div class="logo">Jeniffan</div>
-        <nav>
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#parcours">Parcours</a></li>
-                <li><a href="#competences">Compétences</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#veille">Veille</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header>
+        <div class="logo">Jeniffan JOHN <span>ARULTHASAN</span></div>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À Propos</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#portfolio">Projets E5</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <main>
-        <section id="accueil" class="hero">
-            <div class="hero-content">
-                <h1>Jeniffan John Arulthasan</h1>
-                <p class="subtitle">Étudiant en BTS SIO SISR</p>
-                <a href="#projets" class="btn primary-btn">Découvrir mes Projets</a>
-                <a href="fichiers/Mon_CV.pdf" target="_blank" class="btn secondary-btn">Télécharger mon CV</a>
-            </div>
-        </section>
+    <section id="accueil" class="hero">
+        <h1>Étudiant BTS SIO - SISR</h1>
+        <p>Solutions d’Infrastructures, Systèmes et Réseaux. Passionné par la cybersécurité et l'administration système. Ce portfolio regroupe mes réalisations pour l'Épreuve E5.</p>
+        <a href="#portfolio" class="btn">Voir mes projets E5</a>
+    </section>
 
-        <section id="parcours" class="container">
-            <h2>À Propos de moi & Mon Parcours</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>Bonjour, je suis Jeniffan John Arulthasan, étudiant en BTS SIO option SISR (Solutions d'Infrastructure, Systèmes et Réseaux). Je suis passionnée par la configuration des services réseaux, l'administration de serveurs Linux/Windows et la virtualisation.</p>
-                    <p>Mon objectif est de devenir Administrateur Systèmes et Réseaux. Ce portfolio présente mes réalisations, mes stages et les compétences que j'ai acquises conformément au référentiel du BTS SIO SISR.</p>
-                </div>
-                <div class="stats">
-                    <h3>En Chiffres :</h3>
-                    <p><span>2+</span> Années d'études en SIO</p>
-                    <p><span>12+</span> Semaines de Stage en entreprise</p>
-                    <p><span>Virtualisation</span> Maîtrise des outils VMware/Hyper-V</p>
-                    <a href="fichiers/Mon_CV.pdf" target="_blank" class="btn primary-btn">Mon CV</a>
-                </div>
-            </div>
-        </section>
+    <section id="apropos">
+        <div class="section-title">
+            <h2>À Propos de moi</h2>
+            <span></span>
+        </div>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="https://via.placeholder.com/300x300?text=Ma+Photo" alt="Jeniffan JOHN ARULTHASAN">
+            </div>
+            <div class="about-text">
+                <h3>Futur Administrateur Système & Réseau</h3>
+                <p>Bienvenue sur mon Portfolio. Je m'appelle Jeniffan JOHN ARULTHASAN et je suis actuellement étudiant en BTS SIO (Services Informatiques aux Organisations), option SISR.</p>
+                <br>
+                <p>Passionné par l'informatique depuis mon plus jeune âge, je me spécialise dans la gestion des infrastructures, la virtualisation et la sécurité des réseaux. Ce site regroupe l'ensemble de mes réalisations professionnelles et académiques, notamment celles préparant à l'Épreuve E5 (Travail en entreprise).</p>
+            </div>
+        </div>
+    </section>
 
-        <section id="competences" class="container bg-light">
-            <h2>Mes Compétences Techniques</h2>
-            <p>Acquis et savoir-faire clés pour le métier d'administrateur systèmes et réseaux, en lien avec le référentiel du BTS SIO SISR.</p>
-            
-            <div class="skills-grid">
-                
-                <div class="skill-card">
-                    <i class="fas fa-server"></i>
-                    <h3>Administration Systèmes</h3>
-                    <p>Installation et configuration de **Windows Server** (Active Directory, GPO) et **Linux** (Debian, Ubuntu).</p>
-                </div>
-                
-                <div class="skill-card">
-                    <i class="fas fa-network-wired"></i>
-                    <h3>Infrastructure et Réseaux</h3>
-                    <p>Configuration de l'interconnexion (VLAN, Routage) sur des équipements **Cisco** et gestion des services réseau (DHCP, DNS).</p>
-                </div>
-                
-                <div class="skill-card">
-                    <i class="fas fa-th-large"></i>
-                    <h3>Virtualisation & Conteneurs</h3>
-                    <p>Déploiement de machines virtuelles avec **VMware** et **Hyper-V**, et initiation à **Docker**.</p>
-                </div>
-                
-                <div class="skill-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Sécurité</h3>
-                    <p>Mise en place de politiques de sécurité, configuration de pare-feu et gestion des accès utilisateurs.</p>
-                </div>
-                
-            </div>
-        </section>
-        
-        <section id="projets" class="container">
-            <h2>Mes Réalisations Professionnelles (E4 & E5)</h2>
-            <div class="projects-grid">
-                <article class="project-item">
-                    <h3>Projet E4 : Déploiement d'un service de Supervision</h3>
-                    <p class="technologies">Technologies : Nagios / Centreon, Linux, Scripting Bash</p>
-                    <p>Objectif : Mettre en place une solution de monitoring pour prévenir les pannes sur l'infrastructure (serveurs et équipements réseau).</p>
-                    <a href="fichiers/fiche_E4.pdf" target="_blank" class="project-link">Voir la Fiche E4 détaillée</a>
-                </article>
-                <article class="project-item">
-                    <h3>Projet E5 : Migration d'un service de Messagerie</h3>
-                    <p class="technologies">Technologies : Windows Server, Active Directory, Exchange ou Zimbra</p>
-                    <p>Objectif : Assurer la continuité de service lors du changement de solution de messagerie pour une PME, en garantissant la sécurité des données.</p>
-                    <a href="fichiers/fiche_E5.pdf" target="_blank" class="project-link">Voir la Fiche E5 détaillée</a>
-                </article>
-            </div>
-        </section>
+    <section id="competences">
+        <div class="section-title">
+            <h2>Mes Compétences SISR</h2>
+            <span></span>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <span class="material-icons" style="font-size:40px; color:var(--primary-color)">dns</span>
+                <h3>Système & Virtualisation</h3>
+                <p>Windows Server (Active Directory, DHCP, DNS), Linux (Debian, Ubuntu), Virtualisation (VMware, Hyper-V).</p>
+            </div>
+            <div class="skill-card">
+                <span class="material-icons" style="font-size:40px; color:var(--primary-color)">router</span>
+                <h3>Réseau & Infrastructure</h3>
+                <p>Configuration Switch/Routeur (Cisco), VLAN, Routage, Services réseau (Nginx, Apache).</p>
+            </div>
+            <div class="skill-card">
+                <span class="material-icons" style="font-size:40px; color:var(--primary-color)">security</span>
+                <h3>Sécurité & Maintenance</h3>
+                <p>Gestion des Pare-feux (Pfsense, filtrage), Stratégies de sauvegarde (PCA/PRA), Sécurité des accès.</p>
+            </div>
+            <div class="skill-card">
+                <span class="material-icons" style="font-size:40px; color:var(--primary-color)">code</span>
+                <h3>Scripting (SLAM)</h3>
+                <p>Scripting d'automatisation (Bash, PowerShell), Bases de données (SQL), Git, HTML/CSS/PHP (bases).</p>
+            </div>
+        </div>
+    </section>
 
-        <section id="veille" class="container bg-light">
-            <h2>Ma Veille Technologique</h2>
-            <p>Sujet : L'impact et la sécurisation du **Cloud Hybride** dans les infrastructures des PME.</p>
-            <a href="veille/document_veille.pdf" target="_blank" class="btn primary-btn">Accéder à ma synthèse complète</a>
-        </section>
+    <section id="portfolio">
+        <div class="section-title">
+            <h2>Mes Réalisations (Épreuve E5)</h2>
+            <span></span>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img">[Image du Serveur GLPI]</div>
+                <div class="project-content">
+                    <h3>Projet 1 : Mise en place d'un outil de Gestion de Parc</h3>
+                    <p>**Contexte :** [Nom de l'entreprise ou Laboratoire de formation]. **Mission :** Installer, configurer et documenter un outil (GLPI ou similaire) pour le ticketing et l'inventaire des équipements.</p>
+                    <a href="#" class="project-link">Détails du projet &rarr;</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">[Image de la console Active Directory]</div>
+                <div class="project-content">
+                    <h3>Projet 2 : Déploiement d'une Infrastructure Windows</h3>
+                    <p>**Contexte :** [Nom de l'entreprise ou Laboratoire de formation]. **Mission :** Déployer un domaine Active Directory, gérer les utilisateurs/groupes et appliquer des GPO de sécurité et de configuration.</p>
+                    <a href="#" class="project-link">Détails du projet &rarr;</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">[Image du Pare-feu Pfsense ou autre]</div>
+                <div class="project-content">
+                    <h3>Projet 3 : Sécurisation du réseau périmétrique</h3>
+                    <p>**Contexte :** [Nom de l'entreprise ou Laboratoire de formation]. **Mission :** Configurer un pare-feu (matériel ou logiciel) pour mettre en place des règles de filtrage strictes et un accès distant sécurisé (VPN).</p>
+                    <a href="#" class="project-link">Détails du projet &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </main>
+    <section id="contact" style="background-color: #0a0a0a;">
+        <div class="section-title">
+            <h2>Me Contacter</h2>
+            <span></span>
+        </div>
+        <div style="text-align: center;">
+            <p>Vous souhaitez échanger sur un projet, une opportunité d'emploi ou d'alternance ?</p>
+            <br>
+            <a href="mailto:votre.email@exemple.com" class="btn">Envoyer un email</a>
+        </div>
+    </section>
 
-    <footer id="contact">
-        <div class="footer-content">
-            <p>Email : jeniffan.email@academie.fr</p>
-            <p>LinkedIn : [Votre Lien LinkedIn]</p>
-        </div>
-        <p class="copyright">&copy; 2025 - Portfolio BTS SIO SISR - Jeniffan</p>
-    </footer>
+    <footer>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/votreprofil" target="_blank">LinkedIn</a>
+            <a href="https://github.com/jeniffan1404-byte" target="_blank">GitHub</a>
+        </div>
+        <p>&copy; 2025 Jeniffan JOHN ARULTHASAN - Portfolio BTS SIO SISR.</p>
+    </footer>
 
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-<section id="localisation" class="container">
-            <h2>Localisation de l'Établissement / Zone de Stage</h2>
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167998.0287532326!2d2.100914652253816!3d48.85888975871783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr!4v1677840000000!5m2!1sfr!2sfr" 
-                    width="100%" 
-                    height="450" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </section>
