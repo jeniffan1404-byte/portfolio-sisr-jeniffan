@@ -1,0 +1,249 @@
+/* Définition des variables de couleurs et de police */
+:root {
+    --primary-color: #007bff; /* Bleu d'accent moderne */
+    --background-dark: #1e1e24; /* Fond principal sombre */
+    --text-light: #e0e0e0; /* Texte clair */
+    --card-background: #2a2e35; /* Fond des cartes/sections intermédiaires */
+    --font-family: 'Roboto', sans-serif;
+}
+
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Typographie */
+h1, h2, h3 {
+    color: var(--text-light);
+    margin-bottom: 0.5em;
+}
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5em;
+    color: var(--primary-color);
+}
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+a:hover {
+    color: #4da3ff; /* Variation de bleu */
+}
+
+/* -------------------- BARRE DE NAVIGATION (HEADER) -------------------- */
+header {
+    background: rgba(30, 30, 36, 0.95); /* Arrière-plan semi-transparent */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+}
+
+/* -------------------- BOUTONS -------------------- */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 700;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+}
+.btn.small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+}
+.btn.primary:hover {
+    background-color: #0056b3;
+}
+
+.btn.secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+.btn.secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+
+/* -------------------- SECTIONS GÉNÉRALES -------------------- */
+.section-content {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.section-content:nth-child(even) { /* Pour alterner légèrement le fond des sections */
+    background-color: var(--card-background);
+}
+
+
+/* -------------------- SECTION ACCUEIL (HERO) -------------------- */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+.hero-content h1 {
+    font-size: 4rem;
+    margin: 0.1em 0;
+    color: white;
+}
+.hero-content .subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 300;
+}
+.hero-content .description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #bdbdbd;
+}
+
+/* -------------------- SECTION À PROPOS -------------------- */
+.about-grid {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+.profile-info {
+    flex: 2;
+    font-size: 1.1rem;
+}
+
+/* -------------------- SECTION COMPÉTENCES / PROJETS -------------------- */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+.project-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.project-card h3 {
+    color: var(--text-light);
+    font-size: 1.4rem;
+}
+.project-tags {
+    font-size: 0.85rem;
+    color: #a0a0a0;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+.project-card .btn {
+    align-self: flex-start;
+}
+
+
+/* -------------------- SECTION CONTACT -------------------- */
+.contact-info {
+    text-align: center;
+    margin-top: 2rem;
+}
+.contact-info p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+
+/* -------------------- PIED DE PAGE -------------------- */
+footer {
+    background-color: #111111;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: #999999;
+}
+
+
+/* -------------------- RESPONSIVE (Mobile) -------------------- */
+@media (max-width: 768px) {
+    
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .logo {
+        margin-bottom: 1rem;
+    }
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .about-grid {
+        flex-direction: column;
+    }
+    
+    .btn {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+}
