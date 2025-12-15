@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio BTS SIO SISR - Jeniffan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght=300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="logo">Jeniffan</div>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#parcours">Parcours</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#veille">Veille</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="accueil" class="hero">
+            <div class="hero-content">
+                <h1>Jeniffan John Arulthasan</h1>
+                <p class="subtitle">Étudiant en BTS SIO SISR</p>
+                <a href="#projets" class="btn primary-btn">Découvrir mes Projets</a>
+                <a href="fichiers/Mon_CV.pdf" target="_blank" class="btn secondary-btn">Télécharger mon CV</a>
+            </div>
+        </section>
+
+        <section id="parcours" class="container">
+            <h2>À Propos de moi & Mon Parcours</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Bonjour, je suis Jeniffan John Arulthasan, étudiant en BTS SIO option SISR (Solutions d'Infrastructure, Systèmes et Réseaux). Je suis passionnée par la configuration des services réseaux, l'administration de serveurs Linux/Windows et la virtualisation.</p>
+                    <p>Mon objectif est de devenir Administrateur Systèmes et Réseaux. Ce portfolio présente mes réalisations, mes stages et les compétences que j'ai acquises conformément au référentiel du BTS SIO SISR.</p>
+                </div>
+                <div class="stats">
+                    <h3>En Chiffres :</h3>
+                    <p><span>2+</span> Années d'études en SIO</p>
+                    <p><span>12+</span> Semaines de Stage en entreprise</p>
+                    <p><span>Virtualisation</span> Maîtrise des outils VMware/Hyper-V</p>
+                    <a href="fichiers/Mon_CV.pdf" target="_blank" class="btn primary-btn">Mon CV</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="competences" class="container bg-light">
+            <h2>Mes Compétences Techniques</h2>
+            <p>Acquis et savoir-faire clés pour le métier d'administrateur systèmes et réseaux, en lien avec le référentiel du BTS SIO SISR.</p>
+            
+            <div class="skills-grid">
+                
+                <div class="skill-card">
+                    <i class="fas fa-server"></i>
+                    <h3>Administration Systèmes</h3>
+                    <p>Installation et configuration de **Windows Server** (Active Directory, GPO) et **Linux** (Debian, Ubuntu).</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Infrastructure et Réseaux</h3>
+                    <p>Configuration de l'interconnexion (VLAN, Routage) sur des équipements **Cisco** et gestion des services réseau (DHCP, DNS).</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-th-large"></i>
+                    <h3>Virtualisation & Conteneurs</h3>
+                    <p>Déploiement de machines virtuelles avec **VMware** et **Hyper-V**, et initiation à **Docker**.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Sécurité</h3>
+                    <p>Mise en place de politiques de sécurité, configuration de pare-feu et gestion des accès utilisateurs.</p>
+                </div>
+                
+            </div>
+        </section>
+        
+        <section id="projets" class="container">
+            <h2>Mes Réalisations Professionnelles (E4 & E5)</h2>
+            <div class="projects-grid">
+                <article class="project-item">
+                    <h3>Projet E4 : Déploiement d'un service de Supervision</h3>
+                    <p class="technologies">Technologies : Nagios / Centreon, Linux, Scripting Bash</p>
+                    <p>Objectif : Mettre en place une solution de monitoring pour prévenir les pannes sur l'infrastructure (serveurs et équipements réseau).</p>
+                    <a href="fichiers/fiche_E4.pdf" target="_blank" class="project-link">Voir la Fiche E4 détaillée</a>
+                </article>
+                <article class="project-item">
+                    <h3>Projet E5 : Migration d'un service de Messagerie</h3>
+                    <p class="technologies">Technologies : Windows Server, Active Directory, Exchange ou Zimbra</p>
+                    <p>Objectif : Assurer la continuité de service lors du changement de solution de messagerie pour une PME, en garantissant la sécurité des données.</p>
+                    <a href="fichiers/fiche_E5.pdf" target="_blank" class="project-link">Voir la Fiche E5 détaillée</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="veille" class="container bg-light">
+            <h2>Ma Veille Technologique</h2>
+            <p>Sujet : L'impact et la sécurisation du **Cloud Hybride** dans les infrastructures des PME.</p>
+            <a href="veille/document_veille.pdf" target="_blank" class="btn primary-btn">Accéder à ma synthèse complète</a>
+        </section>
+
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <p>Email : jeniffan.email@academie.fr</p>
+            <p>LinkedIn : [Votre Lien LinkedIn]</p>
+        </div>
+        <p class="copyright">&copy; 2025 - Portfolio BTS SIO SISR - Jeniffan</p>
+    </footer>
+
+</body>
+</html>
+<section id="localisation" class="container">
+            <h2>Localisation de l'Établissement / Zone de Stage</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d167998.0287532326!2d2.100914652253816!3d48.85888975871783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis!5e0!3m2!1sfr!2sfr!4v1677840000000!5m2!1sfr!2sfr" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
