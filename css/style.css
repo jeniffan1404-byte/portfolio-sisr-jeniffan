@@ -1,259 +1,310 @@
-/* Variables pour la cohérence des couleurs */
+/* -------------------------------------- */
+/* 1. Réinitialisation et Variables CSS */
+/* -------------------------------------- */
 :root {
-    --primary-color: #007bff; /* Bleu, couleur dominante */
-    --secondary-color: #6c757d; 
-    --text-color: #333;
-    --bg-light: #f8f9fa; /* Gris très clair pour les sections alternées */
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Couleurs primaires */
+    --color-primary: #1F2937; /* Gris foncé/Bleu nuit (Arrière-plan principal) */
+    --color-secondary: #4B5563; /* Gris pour les titres secondaires */
+    --color-accent: #00ADB5; /* Bleu Cyan/Électrique (Accents et CTA) */
+    --color-text-light: #F9FAFB; /* Blanc cassé pour le texte sur fond sombre */
+    --color-text-dark: #374151; /* Gris foncé pour le texte sur fond clair */
+
+    /* Polices */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: var(--font-body);
     line-height: 1.6;
-    color: var(--text-color);
-    scroll-behavior: smooth; /* Pour la navigation fluide par ancre */
+    color: var(--color-text-dark);
+    background-color: var(--color-text-light);
 }
 
-h1, h2, h3 {
-    font-weight: 700;
-    color: #212529;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2em;
-}
-
-/* 1. Header et Navigation */
-#navbar {
-    background-color: white;
-    box-shadow: var(--shadow);
-    position: sticky; 
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-}
-
-.logo {
-    font-size: 1.5em;
-    font-weight: 700;
-    color: var(--primary-color);
-}
-
-#navbar ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-#navbar a {
+a {
     text-decoration: none;
-    color: var(--text-color);
-    padding: 10px 15px;
+    color: var(--color-accent);
     transition: color 0.3s;
 }
 
-#navbar a:hover {
-    color: var(--primary-color);
+a:hover {
+    color: #008f97; /* Nuance plus foncée de l'accentuation */
 }
 
-/* Styles des Sections Générales */
+/* Conteneur central */
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 20px;
+    padding: 0 20px;
 }
 
-.bg-light {
-    background-color: var(--bg-light);
+/* -------------------------------------- */
+/* 2. Style de la Navigation (Header) */
+/* -------------------------------------- */
+.header {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 15px 0;
+    border-bottom: 3px solid var(--color-accent);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* 2. Section Héro (Accueil) */
-.hero {
-    /* !! IMPORTANT : Vous devez ajouter une image dans img/background_reseau.jpg !! */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/background_reseau.jpg'); 
-    background-size: cover;
-    background-position: center;
-    color: white;
-    height: 80vh; 
+.header .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.nav a {
+    color: var(--color-text-light);
+    margin-left: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.nav a:hover:after {
+    width: 100%;
+    left: 0;
+    background: var(--color-accent);
+}
+
+/* -------------------------------------- */
+/* 3. Section Hero (Accueil) */
+/* -------------------------------------- */
+.hero {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 100px 0;
     text-align: center;
 }
 
-.hero h1 {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-    color: white;
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
-.subtitle {
-    font-size: 1.2em;
-    margin-bottom: 2em;
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
 }
 
-/* Styles des boutons */
-.btn {
+.cta-button {
     display: inline-block;
-    padding: 12px 25px;
-    margin: 10px;
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    padding: 15px 30px;
     border-radius: 5px;
-    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #00d5dc;
+    transform: translateY(-2px);
+    color: var(--color-primary);
+}
+
+/* -------------------------------------- */
+/* 4. Sections Générales */
+/* -------------------------------------- */
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--color-secondary);
+}
+
+.gray-background {
+    background-color: #F3F4F6;
+}
+
+/* -------------------------------------- */
+/* 5. Section BTS SIO (Cartes) */
+/* -------------------------------------- */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid var(--color-accent);
+}
+
+.card h4 {
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-family: var(--font-heading);
+}
+
+.skills-list {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.skills-list li {
+    padding-left: 1.2em;
+    text-indent: -1.2em;
+}
+
+.skills-list li:before {
+    content: "✓ ";
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+/* -------------------------------------- */
+/* 6. Section Projets (E5) */
+/* -------------------------------------- */
+.project-item {
+    background: #FFFFFF;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.project-item h4 {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    margin-right: 10px;
+    margin-top: 10px;
     font-weight: 600;
+}
+
+/* -------------------------------------- */
+/* 7. Section Contact */
+/* -------------------------------------- */
+.contact-links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.contact-link {
+    display: inline-block;
+    font-size: 1.1rem;
+    margin: 0 15px;
+    padding: 10px 15px;
+    border: 1px solid var(--color-accent);
+    border-radius: 5px;
     transition: background-color 0.3s;
 }
 
-.primary-btn {
-    background-color: var(--primary-color);
-    color: white;
-    border: 2px solid var(--primary-color);
+.contact-link:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
 }
 
-.primary-btn:hover {
-    background-color: #0056b3;
-}
-
-.secondary-btn {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-.secondary-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* 3. Section Parcours */
-.about-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 40px;
-    align-items: start;
-    margin-top: 30px;
-}
-
-.stats p {
-    background-color: var(--bg-light);
-    padding: 15px;
-    margin-bottom: 10px;
-    border-left: 5px solid var(--primary-color);
-    border-radius: 4px;
-}
-
-.stats span {
-    font-weight: 700;
-    color: var(--primary-color);
-    font-size: 1.2em;
-    display: block; 
-}
-
-.stats .btn {
-    margin: 15px 0 0 0;
-}
-
-/* 4. Section Compétences (Grid) */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.skill-card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+/* -------------------------------------- */
+/* 8. Pied de page (Footer) */
+/* -------------------------------------- */
+.footer {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border-bottom: 5px solid var(--primary-color);
+    padding: 20px 0;
+    font-size: 0.9rem;
 }
 
-.skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
-}
+/* -------------------------------------- */
+/* 9. Responsivité (Mobile First) */
+/* -------------------------------------- */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        text-align: center;
+    }
 
-.skill-card i {
-    font-size: 3em;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
+    .nav {
+        margin-top: 15px;
+    }
 
-/* 5. Section Projets (Grid) */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
+    .nav a {
+        display: block;
+        margin: 5px 0;
+    }
 
-.project-item {
-    background-color: white;
-    padding: 25px;
-    border-radius: 8px;
-    border-top: 5px solid var(--primary-color);
-    box-shadow: var(--shadow);
-}
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
 
-.project-item h3 {
-    color: var(--primary-color);
-    margin-top: 0;
-}
+    .grid-layout {
+        grid-template-columns: 1fr; /* Les cartes passent en colonne sur mobile */
+    }
 
-.technologies {
-    font-style: italic;
-    color: var(--secondary-color);
-    font-size: 0.9em;
-}
+    .section {
+        padding: 40px 0;
+    }
 
-.project-link {
-    display: block;
-    margin-top: 15px;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.project-link:hover {
-    text-decoration: underline;
-}
-
-/* 7. Pied de Page */
-#contact {
-    background-color: #212529;
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.footer-content p {
-    margin: 5px 0;
-}
-
-.copyright {
-    margin-top: 20px;
-    font-size: 0.9em;
-    opacity: 0.8;
-}
-
-/* 7. Styles pour la Carte (Localisation) */
-.map-container {
-    margin-top: 30px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden; /* Important pour que l'iframe respecte le border-radius */
-}
-
-/* La carte elle-même (l'iframe) */
-.map-container iframe {
-    display: block; /* Supprime les éventuels espaces sous l'iframe */
+    .section-title {
+        font-size: 1.8rem;
+    }
 }
